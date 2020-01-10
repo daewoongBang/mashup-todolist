@@ -1,5 +1,6 @@
 import React from 'react';
-import { createGlobalStyle, keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -8,7 +9,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App: React.FC = () => {
-  return <div>Hello World!</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <TodoTemplate>Hello World!!</TodoTemplate>
+    </>
+  );
 };
 
 export default App;
