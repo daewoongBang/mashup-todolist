@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
 const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle />
       <TodosContextProvider>
+        <GlobalStyle />
         <TodoTemplate>
           <TodoHead />
           <TodoList />

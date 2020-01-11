@@ -12,10 +12,16 @@ const TodoListBlock = styled.div`
 
 const TodoList = () => {
   const todos = useTodosState();
+
   return (
     <TodoListBlock>
       {todos.map(todo => (
-        <TodoItem id={todo.id} text={todo.text} done={todo.done} />
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+        />
       ))}
     </TodoListBlock>
   );
