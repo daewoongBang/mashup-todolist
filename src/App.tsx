@@ -4,6 +4,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
 import TodoList from './components/TodoList';
 import TodoCreate from './components/TodoCreate';
+import { TodosContextProvider } from './contexts/TodoContext';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -15,11 +16,13 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <TodoTemplate>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </TodoTemplate>
+      <TodosContextProvider>
+        <TodoTemplate>
+          <TodoHead />
+          <TodoList />
+          <TodoCreate />
+        </TodoTemplate>
+      </TodosContextProvider>
     </>
   );
 };
