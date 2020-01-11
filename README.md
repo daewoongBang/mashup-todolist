@@ -2,9 +2,11 @@
 
 타입스크립트를 사용하여 Todolist 만들기
 
-react-icons, styled-components 사용  
+**react-icons, styled-components 사용**  
 yarn add react-icons styled-components  
-yarn add @types/styled-components (typescript에 필요한 styled-components)  
+yarn add @types/styled-components (typescript에 필요한 styled-components)
+
+**eslint, prettier 사용**  
 yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev  
 yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
 
