@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useTodosDispatch } from '../contexts/TodoContext';
 
 interface defaultProps {
   done: Boolean;
@@ -66,15 +67,22 @@ const Text = styled.div<defaultProps>`
 `;
 
 const TodoItem = ({ id, done, text }: TodoItemProps) => {
+  const dispatch = useTodosDispatch();
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
+
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>
   );
 };
 
-export default TodoItem;
+// React.memo - 다른 항목이 업데이트 될 때, 불필요한 리렌더링을 방지하게 되어 성능 최적화 가능
+export default React.memo(TodoItem);
